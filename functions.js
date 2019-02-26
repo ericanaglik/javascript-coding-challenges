@@ -8,9 +8,6 @@ function generateRandomNum(n) {
     return Math.floor(Math.random() * n)
 }
 
-// Test
-generateRandomNum(10)
-
 // Step 2: Randomize characters in a string
 function randomizeWord(word) {
     // Splits string into an array
@@ -28,6 +25,7 @@ function randomizeWord(word) {
 }
 
 // Test
+generateRandomNum(10)
 console.log(randomizeWord("Erica"));
 
 
