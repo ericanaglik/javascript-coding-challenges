@@ -1,3 +1,4 @@
+const shoppingCartData = require('./shopping-cart-data');
 /******************************
         CHALLENGE 1:
 Build an online shopping cart!
@@ -7,6 +8,7 @@ Build an online shopping cart!
 
 class CartItem {
     constructor(name, price, qty) {
+        // this = {}
         this.name = name;
         this.price = price;
         this.qty = qty;
@@ -17,9 +19,15 @@ class CartItem {
     }
 };
 
+new CartItem('hello')
+var item  = {}
+item.name = 'hello' // { name: 'hello' }
+
+
 // Define a class that will be a shopping cart
 class ShoppingCart {
     constructor() {
+        // items is a property of the instance of the class.
         this.items = [];
     }
 
