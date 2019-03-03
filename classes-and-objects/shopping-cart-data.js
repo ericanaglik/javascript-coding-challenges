@@ -399,3 +399,8 @@ var shoppingCartData = [{
     "price": 7.44,
     "qty": 8
   }]
+
+//   console.log('-- Testing shopping cart data')
+//   console.log( shoppingCartData[0].name )
+//   console.log(shoppingCartData[0].price)
+//   console.log(shoppingCartData[0].qty)

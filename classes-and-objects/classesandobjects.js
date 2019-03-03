@@ -1,4 +1,3 @@
-const shoppingCartData = require('./shopping-cart-data');
 /******************************
         CHALLENGE 1:
 Build an online shopping cart!
@@ -48,9 +47,18 @@ class ShoppingCart {
     } 
 };
 
+
+
 // Test
-let cart = new ShoppingCart();
-cart.addItem('purse', 199.99, 2);
-cart.addItem('dress', 459.50, 3);
-cart.addItem('shoes', 129.98, 5);
-console.log(cart.total())
+let hundredItems = new ShoppingCart()
+for (var num = 0; num < shoppingCartData.length; num += 1) {
+    hundredItems.addItem(shoppingCartData[num].name, shoppingCartData[num].price, shoppingCartData[num].qty)
+}
+console.log(hundredItems);
+console.log(hundredItems.total())
+
+// let cart = new ShoppingCart();
+// cart.addItem('purse', 199.99, 2);
+// cart.addItem('dress', 459.50, 3);
+// cart.addItem('shoes', 129.98, 5);
+// console.log(cart.total())
