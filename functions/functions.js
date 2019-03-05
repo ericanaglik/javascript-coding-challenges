@@ -9,7 +9,7 @@ function generateRandomNum(n) {
 }
 
 // Step 2: Randomize characters in a string
-function randomizeWord(word) {
+function randomizeLetters(word) {
     // Splits string into an array
     const newArray = word.split("")
     // the new string after randomization
@@ -28,4 +28,12 @@ function randomizeWord(word) {
 generateRandomNum(10)
 console.log(randomizeWord("Erica"));
 
+/**********************************
+        CHALLENGE 1 modified:
+Write a string scrambler sentence!
+**********************************/
+
+function randomizeSentence(sentence) {
+
+}
 
