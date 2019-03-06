@@ -6,17 +6,35 @@ Build an online shopping cart!
 // define an object thart represents an item in the cart using a class
 
 class CartItem {
-    constructor(name, price, qty) {
+    constructor(name, price, qty, discount) {
         // this = {}
         this.name = name;
         this.price = price;
         this.qty = qty;
+        this.discount = discount;
     }
     // add a method to your class that returns the subtotal
     subtotal() {
-        return (this.price * this.qty);
+        // Return discounted subtotal if theres a discount
+        if(this.discount != undefined) {
+            const itemSubtotal = (this.price * this.qty);
+            return (itemSubtotal * this.discount);
+        }
+        // return subtotal if no discount
+        else {
+            return (this.price * this.qty);
+        }
     }
 };
+
+let item1 = new CartItem('shoes', 85.30, 2, .25);
+let item2 = new CartItem('hat', 25.99, 3)
+
+
+console.log(item1);
+console.log(item1.subtotal());
+console.log(item2);
+console.log(item2.subtotal());
 
 new CartItem('hello')
 var item  = {}
@@ -34,7 +52,7 @@ class ShoppingCart {
     addItem(name, price, qty) {
         const item = new CartItem(name, price, qty);
         this.items.push(item);
-        // I wanted to get a commit today
+        
     }
 
     // Calculate the total cost of the cart
