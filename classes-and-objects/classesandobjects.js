@@ -52,8 +52,8 @@ class ShoppingCart {
     addItem(name, price, qty) {
         const item = new CartItem(name, price, qty);
         this.items.push(item);
-        
     }
+    
 
     // Calculate the total cost of the cart
     total() {
