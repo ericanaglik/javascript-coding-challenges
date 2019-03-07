@@ -74,6 +74,11 @@ class ShoppingCart {
         }  
         return total;
     } 
+
+    // step 8
+    describe() {
+        return `${this.name} has a price of ${this.price}`;
+    }
 };
 
 
