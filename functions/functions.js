@@ -55,22 +55,18 @@ class FunctionChallenge {
 
     countAndPrint() {
         for(let i = 0; i < this.num; this.num += 1) {
-            if (this.num % 5 == 0) {
+            if ((this.num % 3 == 0) && (this.num % 5 == 0)) {
                 console.log("fizz");
-            } else if((num % 3 == 0) && (this.num % 5 == 0)) {
-                console.log("fizzbuzz");
+            } else if((this.num % 5 == 0)){
+              console.log("fizzbuzz");
             } else {
                 console.log(this.num);
             }
         } 
-
     }
 }
 
-let testing = new FunctionChallenge
-
-let test = testing.countAndPrint(30);
-console.log(test)
-
+let test = new FunctionChallenge(30);
+console.log(test.countAndPrint());
 
 

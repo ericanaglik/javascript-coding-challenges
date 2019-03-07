@@ -43,17 +43,27 @@ item.name = 'hello' // { name: 'hello' }
 
 // Define a class that will be a shopping cart
 class ShoppingCart {
-    constructor() {
+    constructor(items = []) {
         // items is a property of the instance of the class.
-        this.items = [];
+        this.items = items;
     }
 
     // Add a method to the cart class that adds a new item to the shopping cart
     addItem(name, price, qty) {
         const item = new CartItem(name, price, qty);
+        // step 7
+        for(i = 0; i < this.items.length; i += 1) {
+            if (newItem.name == this.items[i].name) {
+                this.items[i].qty += newItem.qty
+                return
+            }
+        }
         this.items.push(item);
     }
-    
+
+    removeItem(index, count) {
+        this.items.splice(index, count);
+    }
 
     // Calculate the total cost of the cart
     total() {
