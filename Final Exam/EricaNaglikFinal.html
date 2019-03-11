@@ -19,9 +19,9 @@
         ***QUESTION 1***
         ***************/
         class Task {
-            constructor(title, isComplete = false, date = new Date()) {
+            constructor(title, isCompleted = false, date = new Date()) {
                 this.title = title;
-                this.isComplete = isComplete;
+                this.isCompleted = isCompleted;
                 this.date = date;
             }
             /***************
@@ -40,7 +40,7 @@
             ***QUESTION 3***
             ***************/
             completed() {
-                if (this.isComplete == true) {
+                if (this.isCompleted == true) {
                     return "completed";
                 } else {
                     return "not completed"
@@ -80,8 +80,8 @@
             /***************
             ***QUESTION 6***
             ***************/
-            addTask( title, date, isCompleted ) {
-                const task = new Task(title, date, isCompleted);
+            addTask( title, isCompleted, date ) {
+                const task = new Task(title, isCompleted, date);
                 this.tasks.push(task);
             }
             /***************
@@ -92,9 +92,6 @@
                     const task = this.tasks[index]
                     console.log(task.toString())
                 }
-                // for(let i =  0; i < this.tasks.length; i += 1) {
-                //     console.log(this.tasks[i].toString());
-                // }
             }
             /***************
             ***QUESTION 10**
@@ -124,7 +121,7 @@
         ***************/
         let data = new TaskList();
         for (var num = 0; num < taskData.length; num += 1) {
-            data.addTask(taskData[num].title, taskData[num].isCompleted, taskData[num].isCompleted)
+            data.addTask(taskData[num].title, taskData[num].isCompleted, taskData[num].date)
         }
         console.log("Question 8:")
         console.log(data.toString())
@@ -134,9 +131,11 @@
         ***************/
         console.log("Question 9:")
         data.showTasks()
-        // for(var i = 0; i < taskData.length; i += 1) {
-        //     console.log(this.tasks[i].showTasks())
-        // }
+
+        // Test Question 10 
+        console.log("Question 10:")
+        console.log(showCompleted(true))
+        console.log(showCompleted(false))
         
         
 
