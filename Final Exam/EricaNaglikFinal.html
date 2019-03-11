@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>  
+    <script>
+        const taskData = [
+	        { title: 'Feed cat', date: '11/17/19' },
+                { title: 'Call mom' },
+            { title: 'Practice JS', isCompleted: false },
+	        { title: 'Bake Cake', date: '3/3/19', isCompleted: true }
+        ]
+        /***************
+        ***QUESTION 1***
+        ***************/
+        class Task {
+            constructor(title, isComplete = false, date = new Date()) {
+                this.title = title;
+                this.isComplete = isComplete;
+                this.date = date;
+            }
+            /***************
+            ***QUESTION 2***
+            ***************/
+           formattedDate() {
+               // extra credit
+               let date = this.date
+               if (date instanceof Date) {
+                return this.date.toLocaleDateString();
+               } else {
+                   return date
+               }
+           }
+            /***************
+            ***QUESTION 3***
+            ***************/
+            completed() {
+                if (this.isComplete == true) {
+                    return "completed";
+                } else {
+                    return "not completed"
+                }
+            }
+            /***************
+            ***QUESTION 4***
+            ***************/
+            toString() {
+                return `${this.title} | ${this.formattedDate()} | ${this.completed()}`
+            }        
+        } 
+        // Test Question 1 
+        console.log("Question 1: ")
+        const myTask = new Task('complete question 1', true);
+        console.log(myTask);
+
+        // Test Question 2
+        console.log("Question 2: ")
+        console.log(myTask.formattedDate());
+
+        // Test Question 3
+        console.log("Question 3:")
+        console.log(myTask.completed());
+
+        // Test Question 4
+        console.log("Question 4:")
+        console.log(myTask.toString());
+
+        /***************
+        ***QUESTION 5***
+        ***************/
+        class TaskList {
+            constructor(tasks = []) {
+                this.tasks = tasks;
+            }
+            /***************
+            ***QUESTION 6***
+            ***************/
+            addTask( title, date, isCompleted ) {
+                const task = new Task(title, date, isCompleted);
+                this.tasks.push(task);
+            }
+            /***************
+            ***QUESTION 7***
+            ***************/
+            showTasks() {
+                for(let index in this.tasks) {
+                    const task = this.tasks[index]
+                    console.log(task.toString())
+                }
+                // for(let i =  0; i < this.tasks.length; i += 1) {
+                //     console.log(this.tasks[i].toString());
+                // }
+            }
+            /***************
+            ***QUESTION 10**
+            ***************/
+            showCompleted(completion = true) {
+                for(let i = 0; i < this.tasks.length; i += 1) {
+                    const task = this.tasks[i]
+                    if(task.isCompleted === completion) {
+                        console.log(task.toString())
+                    }
+                }
+            }
+        }
+
+        // Test Question 6 
+        console.log("Question 6:")
+        const myTaskList = new TaskList();
+        myTaskList.addTask('Question 6', true);
+        console.log(myTaskList.tasks) // Something like: [{ Task }]
+
+        // Test Question 7
+        console.log("Question 7:")
+        myTaskList.showTasks() // Question 6 | Thu Mar 07 2019 | completed 
+
+        /***************
+        ***QUESTION 8***
+        ***************/
+        let data = new TaskList();
+        for (var num = 0; num < taskData.length; num += 1) {
+            data.addTask(taskData[num].title, taskData[num].isCompleted, taskData[num].isCompleted)
+        }
+        console.log("Question 8:")
+        console.log(data.toString())
+
+        /***************
+        ***QUESTION 9***
+        ***************/
+        console.log("Question 9:")
+        data.showTasks()
+        // for(var i = 0; i < taskData.length; i += 1) {
+        //     console.log(this.tasks[i].showTasks())
+        // }
+        
+        
+
+    </script>
+</body>
+</html>

@@ -6,7 +6,7 @@ Build an online shopping cart!
 // define an object thart represents an item in the cart using a class
 
 class CartItem {
-    constructor(name, price, qty, discount) {
+    constructor({name, price, qty, discount}) {
         // this = {}
         this.name = name;
         this.price = price;
@@ -25,20 +25,24 @@ class CartItem {
             return (this.price * this.qty);
         }
     }
+    // step 8
+    describe() {
+        return `${this.name} has a price of ${this.price}`;
+    }
 };
 
-let item1 = new CartItem('shoes', 85.30, 2, .25);
-let item2 = new CartItem('hat', 25.99, 3)
+// let item1 = new CartItem('shoes', 85.30, 2, .25);
+// let item2 = new CartItem('hat', 25.99, 3)
 
 
-console.log(item1);
-console.log(item1.subtotal());
-console.log(item2);
-console.log(item2.subtotal());
+// console.log(item1);
+// console.log(item1.subtotal());
+// console.log(item2);
+// console.log(item2.subtotal());
 
-new CartItem('hello')
-var item  = {}
-item.name = 'hello' // { name: 'hello' }
+// new CartItem('hello')
+// var item  = {}
+// item.name = 'hello' // { name: 'hello' }
 
 
 // Define a class that will be a shopping cart
@@ -52,9 +56,9 @@ class ShoppingCart {
     addItem(name, price, qty) {
         const item = new CartItem(name, price, qty);
         // step 7
-        for(i = 0; i < this.items.length; i += 1) {
-            if (newItem.name == this.items[i].name) {
-                this.items[i].qty += newItem.qty
+        for(let i = 0; i < this.items.length; i += 1) {
+            if (item.name == this.items[i].name) {
+                this.items[i].qty += item.qty
                 return
             }
         }
@@ -69,15 +73,17 @@ class ShoppingCart {
     total() {
         // for (starting var; condition; increment)
         let total = 0;
-        for(var item = 0; item < this.items.length; item += 1) {
-            total += this.items[item].subtotal();
+        for(var i = 0; i < this.items.length; i += 1) {
+            total += this.items[i].subtotal();
         }  
         return total;
     } 
 
-    // step 8
-    describe() {
-        return `${this.name} has a price of ${this.price}`;
+    // step 9
+    displayCart() {
+        for(let i =  0; i < this.items.length; i += 1) {
+            console.log(this.items[i].describe());
+        }
     }
 };
 
@@ -85,11 +91,16 @@ class ShoppingCart {
 
 // Test
 let hundredItems = new ShoppingCart()
-for (var num = 0; num < shoppingCartData.length; num += 1) {
-    hundredItems.addItem(shoppingCartData[num].name, shoppingCartData[num].price, shoppingCartData[num].qty)
+for (index in shoppingCartData) {
+    let newItem = shoppingCartData[index]
+    hundredItems.addItem(newItem)
 }
-console.log(hundredItems);
-console.log(hundredItems.total())
+// for (var num = 0; num < shoppingCartData.length; num += 1) {
+//     hundredItems.addItem(shoppingCartData[num].name, shoppingCartData[num].price, shoppingCartData[num].qty)
+// }
+// console.log(hundredItems);
+// console.log(hundredItems.total())
+hundredItems.displayCart()
 
 // let cart = new ShoppingCart();
 // cart.addItem('purse', 199.99, 2);
